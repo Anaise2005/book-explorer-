@@ -3,6 +3,13 @@
  * Returns an array of { id, title, author, year, cover }.
  */
 
+/**
+ * Fetches books from the Open Library API by title.
+ * @param {string} query - The title to search for.
+ * @returns {Promise<Array<{id: string, title: string, author: string, year: (number|string), cover: string}>>}
+ * @throws {Error} If the request fails.
+ */
+
 export async function fetchBooks(query = "javascript") {
   const url = `https://openlibrary.org/search.json?title=${encodeURIComponent(query)}&limit=20`;
   const res = await fetch(url);
