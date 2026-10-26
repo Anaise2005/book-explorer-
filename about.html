@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About | Book Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold">📚 Book Explorer</a>
+      <div class="flex gap-4 text-sm sm:text-base">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="favorites.html" class="hover:underline">Favorites</a>
+        <a href="about.html" class="underline font-semibold">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="bg-indigo-100 py-10 px-4 text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-2">About Book Explorer</h1>
+    <p class="text-gray-600">A simple way to find books and keep the ones you love.</p>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 py-10 w-full space-y-10">
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-3">What this app does</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Book Explorer lets you search for books by title, see their covers, authors and
+        publication years, and save your favorites. Your favorites stay on your device,
+        so they are still there when you come back.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Features</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl shadow p-5">
+          <h3 class="font-semibold mb-1">Browse books</h3>
+          <p class="text-sm text-gray-600">Real book data loaded from the Open Library API.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5">
+          <h3 class="font-semibold mb-1">Search by title</h3>
+          <p class="text-sm text-gray-600">Type a title and press Search or Enter.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5">
+          <h3 class="font-semibold mb-1">Save favorites</h3>
+          <p class="text-sm text-gray-600">Add or remove books and keep them after a refresh.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5">
+          <h3 class="font-semibold mb-1">Works on any screen</h3>
+          <p class="text-sm text-gray-600">The layout adapts to phones, tablets and desktops.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-3">Built with</h2>
+      <ul class="flex flex-wrap gap-2">
+        <li class="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">HTML</li>
+        <li class="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">Tailwind CSS</li>
+        <li class="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">JavaScript (ES6 modules)</li>
+        <li class="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">fetch and async/await</li>
+        <li class="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">localStorage</li>
+        <li class="bg-indigo-100 text-indigo-800 text-sm px-3 py-1 rounded-full">Git and GitHub</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-3">About the developer</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Built by Laura Anaise Akoguteta as the Frontend Phase 1 Capstone of the
+        SheCanCode bootcamp at Igire Rwanda Organization.
+      </p>
+      <a href="https://github.com/Anaise2005/book-explorer" target="_blank" rel="noopener"
+         class="inline-block mt-4 bg-indigo-700 text-white px-5 py-2 rounded-lg hover:bg-indigo-800">
+        View the code on GitHub
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center py-4 text-sm">
+    © 2026 Book Explorer · Built with Tailwind & JavaScript
+  </footer>
+</body>
+</html>

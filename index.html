@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold">📚 Book Explorer</a>
+      <div class="flex gap-4 text-sm sm:text-base">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="favorites.html" class="hover:underline">Favorites</a>
+        <a href="about.html" class="hover:underline">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero + search -->
+  <header class="bg-indigo-100 py-12 px-4 text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-3">Discover your next book</h1>
+    <p class="mb-6 text-gray-600">Search millions of books and save your favorites.</p>
+    <div class="max-w-xl mx-auto flex gap-2">
+      <input id="searchInput" type="text" placeholder="Search by title..."
+             class="flex-1 rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+      <button id="searchBtn" class="bg-indigo-700 text-white px-5 py-2 rounded-lg hover:bg-indigo-800">Search</button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-8 w-full">
+    <div id="status" class="text-center mb-4"></div>
+    <section id="bookGrid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center py-4 text-sm">
+    © 2026 Book Explorer · Built with Tailwind & JavaScript
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

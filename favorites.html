@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Favorites | Book Explorer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="bg-indigo-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold">📚 Book Explorer</a>
+      <div class="flex gap-4 text-sm sm:text-base">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="favorites.html" class="underline font-semibold">Favorites</a>
+        <a href="about.html" class="hover:underline">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="bg-indigo-100 py-10 px-4 text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-2">Your favorite books</h1>
+    <p class="text-gray-600">Books you save appear here, even after you refresh the page.</p>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-8 w-full">
+    <p id="favCount" class="text-sm text-gray-500 mb-4"></p>
+    <section id="favGrid"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 text-center py-4 text-sm">
+    © 2026 Book Explorer · Built with Tailwind & JavaScript
+  </footer>
+
+  <script type="module">
+    import { getFavorites, removeFavorite } from "./js/favorites.js";
+    import { bookCard } from "./js/ui.js";
+
+    const grid = document.getElementById("favGrid");
+    const count = document.getElementById("favCount");
+
+    function render() {
+      const favs = getFavorites();
+      count.textContent = favs.length
+        ? `${favs.length} saved ${favs.length === 1 ? "book" : "books"}`
+        : "";
+
+      grid.innerHTML = favs.length
+        ? favs.map(bookCard).join("")
+        : `<div class="col-span-full text-center py-16">
+             <p class="text-lg text-gray-600 mb-4">You have no favorites yet.</p>
+             <a href="index.html"
+                class="inline-block bg-indigo-700 text-white px-5 py-2 rounded-lg hover:bg-indigo-800">
+               Browse books
+             </a>
+           </div>`;
+    }
+
+    // Remove a favorite when its button is clicked
+    grid.addEventListener("click", (e) => {
+      const btn = e.target.closest(".fav-btn");
+      if (!btn) return;
+      removeFavorite(btn.dataset.id);
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
