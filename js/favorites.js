@@ -1,3 +1,8 @@
+/**
+ * Favorites module: stores the user's favorite books in localStorage.
+ * Exports: getFavorites, isFavorite, addFavorite, removeFavorite
+ */
+
 const KEY = "favorites";
 
 export function getFavorites() {
