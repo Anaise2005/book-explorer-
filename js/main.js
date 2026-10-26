@@ -9,27 +9,20 @@ const btn = document.getElementById("searchBtn");
 let books = [];
 
 async function load(query) {
-  status.innerHTML = `<div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>`;
+  status.innerHTML = `
+    <div class="flex flex-col items-center gap-2">
+      <div class="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent"></div>
+      <p class="text-sm text-gray-500">Searching for "${query}"...</p>
+    </div>`;
   grid.innerHTML = "";
+
   try {
     books = await fetchBooks(query);
-    status.innerHTML = books.length ? "" : "No results found.";
+    status.innerHTML = books.length
+      ? `<p class="text-sm text-gray-500">Showing ${books.length} results for "${query}"</p>`
+      : `<p class="text-lg text-gray-600">No results found for "${query}". Try another title.</p>`;
     grid.innerHTML = books.map(bookCard).join("");
   } catch (err) {
-    status.textContent = "Something went wrong. Please try again.";
+    status.innerHTML = `<p class="text-red-600">Could not load books. Check your internet connection and try again.</p>`;
   }
 }
-
-btn.addEventListener("click", () => input.value.trim() && load(input.value.trim()));
-input.addEventListener("keydown", (e) => e.key === "Enter" && btn.click());
-
-// Event delegation for favorite buttons
-grid.addEventListener("click", (e) => {
-  const btn = e.target.closest(".fav-btn");
-  if (!btn) return;
-  const book = books.find((b) => b.id === btn.dataset.id);
-  isFavorite(book.id) ? removeFavorite(book.id) : addFavorite(book);
-  grid.innerHTML = books.map(bookCard).join("");
-});
-
-load("javascript"); // default books on first load
