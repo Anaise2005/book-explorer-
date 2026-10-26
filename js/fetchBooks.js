@@ -1,3 +1,8 @@
+/**
+ * Fetches books from the Open Library API by title.
+ * Returns an array of { id, title, author, year, cover }.
+ */
+
 export async function fetchBooks(query = "javascript") {
   const url = `https://openlibrary.org/search.json?title=${encodeURIComponent(query)}&limit=20`;
   const res = await fetch(url);
